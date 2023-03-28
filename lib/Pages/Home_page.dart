@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:culturarte/Widgets/widgets_Home.dart';
 
-
 class Home extends StatefulWidget {
   const Home({
     Key? key,
-  }): super (key: key);
+  }) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
 }
 
-
 @override
-class _HomeState extends State<Home>{
-
+class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
@@ -24,11 +21,10 @@ class _HomeState extends State<Home>{
                   fontStyle: FontStyle.italic,
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white
-              ),
+                  color: Colors.white),
               'CulturArte'),
         ),
-        body:SizedBox(
+        body: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: ListView(
             children: [
@@ -40,25 +36,19 @@ class _HomeState extends State<Home>{
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.deepPurple,
-                        ),
-                      onPressed:  () async{
+                      ),
+                      onPressed: () async {
                         await Navigator.pushNamed(context, '/add_event');
-                        setState(() {
-                        });
+                        setState(() {});
                       },
                       child: Center(
-                        child:Text("Crear Evento"),
-                      )
-            ),
+                        child: Text("Crear Evento"),
+                      )),
                   SearchBar(),
                 ],
               )
-
             ],
           ),
-        )
-        );
-
-
+        ));
   }
 }

@@ -1,10 +1,11 @@
-import 'dart:async';
-
+import 'package:culturarte/Widgets/widgets_Goglemaps.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../Services/firebase_service.dart';
 
 class FormCreateEvent extends StatefulWidget {
-  FormCreateEvent({Key ?key}) : super(key: key);
+  FormCreateEvent({Key? key}) : super(key: key);
 
   @override
   _FormCreateEventState createState() {
@@ -23,18 +24,21 @@ class _FormCreateEventState extends State<FormCreateEvent> {
     super.dispose();
   }
 
-  TextEditingController nameControler= TextEditingController(text: "");
-  TextEditingController descriptionControler= TextEditingController(text: "");
-  TextEditingController priceControler= TextEditingController(text: "");
+  TextEditingController nameControler = TextEditingController(text: "");
+  TextEditingController descriptionControler = TextEditingController(text: "");
+  TextEditingController priceControler = TextEditingController(text: "");
+  String placeControler="";
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return  Padding(
+    return Padding(
       padding: EdgeInsets.all(10.0),
-      child:Column(
+      child: Column(
         children: [
-           TextField(
+
+
+          TextField(
             controller: nameControler,
             decoration: InputDecoration(
               hintText: 'Nombre',
@@ -48,9 +52,8 @@ class _FormCreateEventState extends State<FormCreateEvent> {
             ),
             style: TextStyle(color: Colors.white),
           ),
-
-           TextField(
-             controller: descriptionControler,
+          TextField(
+            controller: descriptionControler,
             decoration: InputDecoration(
               hintText: 'Descripcion',
               hintStyle: TextStyle(color: Colors.white),
@@ -63,9 +66,8 @@ class _FormCreateEventState extends State<FormCreateEvent> {
             ),
             style: TextStyle(color: Colors.white),
           ),
-
-           TextField(
-             controller: priceControler,
+          TextField(
+            controller: priceControler,
             decoration: InputDecoration(
               hintText: 'Precioboleta1',
               hintStyle: TextStyle(color: Colors.white),
@@ -79,21 +81,26 @@ class _FormCreateEventState extends State<FormCreateEvent> {
             style: TextStyle(color: Colors.white),
           ),
 
-
+          GoogleMapsWidget(
+            onMarkerPositionChanged: (LatLng position) {
+              // Usa la posición del marcador aquí
+              placeControler= '${position.latitude}, ${position.longitude}';
+            },
+          ),
           ElevatedButton(
-              onPressed:() async {
-                await addEvent(nameControler.text, descriptionControler.text, priceControler.text).then((value) {
+              onPressed: () async {
+                await addEvent(nameControler.text, descriptionControler.text,
+                    priceControler.text,placeControler)
+                    .then((value) {
                   Navigator.pop(context);
                 });
-
-               // await addEvent(nameControler.text,descriptionControler.text,priceControler.text).then(void() {
-               //   Navigator.pop(context);
-               // }] null);
-              } ,
-              child: Text("Crear Evento"))
+              },
+              child: Text("Crear Evento")),
         ],
-      ) ,
+      ),
     );
   }
 }
+
+
 

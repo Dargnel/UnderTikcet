@@ -33,25 +33,20 @@ class _Create_EventState extends State<Create_Event> {
                   fontStyle: FontStyle.italic,
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white
-              ),
+                  color: Colors.white),
               'CulturArte'),
-        )
-    ,
-      body: ListView(
-        children: [
-          Text("Crear Evento",
-            style:TextStyle(
-              color: Colors.white,
-              fontSize: 20.00,
-
-            ),),
-          FormCreateEvent() ,
-        ],
-      )
-
-
-
-    );
+        ),
+        body: ListView(
+          children: [
+            Text(
+              "Crear Evento",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20.00,
+              ),
+            ),
+            FormCreateEvent(),
+          ],
+        ));
   }
 }
