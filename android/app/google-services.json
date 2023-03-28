@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "431770669262",
+    "project_id": "culturarte-455b0",
+    "storage_bucket": "culturarte-455b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431770669262:android:127566baf461265624009f",
+        "android_client_info": {
+          "package_name": "com.example.culturarte"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "431770669262-h2hihii1259kmbbkg5u1c6le778hktog.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1qFgj33tc794UqXDB5kbt2-5IcDp_nhw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "431770669262-h2hihii1259kmbbkg5u1c6le778hktog.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
