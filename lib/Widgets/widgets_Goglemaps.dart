@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 typedef MarkerPositionCallback = void Function(LatLng markerPosition);
+
 class GoogleMapsWidget extends StatefulWidget {
   final MarkerPositionCallback onMarkerPositionChanged;
-  GoogleMapsWidget({Key? key, required this.onMarkerPositionChanged}) : super(key: key);
+
+  GoogleMapsWidget({Key? key, required this.onMarkerPositionChanged})
+      : super(key: key);
 
   @override
   _GoogleMapsWidgetState createState() {
@@ -14,14 +17,11 @@ class GoogleMapsWidget extends StatefulWidget {
   }
 }
 
-
-
 class _GoogleMapsWidgetState extends State<GoogleMapsWidget> {
-  String placeControler ="37.422, -122.084";
+  String placeControler = "37.422, -122.084";
   final Set<Factory<OneSequenceGestureRecognizer>> _gestureRecognizers = [
     Factory<OneSequenceGestureRecognizer>(() => EagerGestureRecognizer()),
   ].toSet();
-
 
   Marker? _marker;
 
@@ -34,7 +34,6 @@ class _GoogleMapsWidgetState extends State<GoogleMapsWidget> {
     final marker = Marker(
       markerId: MarkerId("marker_${_marker}"),
       position: latLng,
-
     );
     setState(() {
       _marker = (marker);
@@ -54,7 +53,8 @@ class _GoogleMapsWidgetState extends State<GoogleMapsWidget> {
         ),
         scrollGesturesEnabled: true,
         onTap: _addMarker,
-        markers: _marker == null ? Set.of([defaultMarker!]) :Set.of([_marker!]),
+        markers:
+            _marker == null ? Set.of([defaultMarker!]) : Set.of([_marker!]),
         gestureRecognizers: _gestureRecognizers,
       ),
     );
